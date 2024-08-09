@@ -30,7 +30,7 @@ setup(
     description='Common sasa library for.',  # Optional
     long_description=long_description,  # Optional
     long_description_content_type='text/markdown',  # Optional (see note above)
-    url='https://gitlab.com:dev-team-sasa/sasa_common.git',  # Optional
+    url="https://github.com/marcotn/sasacommon",
     author='http://www.sasabz.it',  # Optional
     author_email='support@sasabz.it',  # Optional
 
