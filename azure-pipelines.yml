@@ -1,0 +1,57 @@
+trigger:
+  branches:
+    include:
+      - '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  vmImageName: 'ubuntu-latest'
+
+strategy:
+  matrix:
+    Python310:
+      python.version: '3.10'
+      addToPath: true
+      architecture: 'x64'
+    Python311:
+      python.version: '3.11'
+      addToPath: true
+      architecture: 'x64'
+    Python312:
+      python.version: '3.12'
+      addToPath: true
+      architecture: 'x64'
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+      architecture: '$(architecture)'
+    displayName: 'Use Python $(python.version) $(architecture)'
+  - script: |
+      python -m pip install --upgrade pip
+      python -m pip install poetry
+    displayName: 'Install pip and poetry'
+  - script: |
+      poetry install --no-interaction --no-ansi --no-root
+    displayName: 'Install dependencies'
+  - script: |
+      poetry run python setup.py bdist_wheel --universal
+    displayName: 'Create wheel'
+  - task: ArchiveFiles@2
+    displayName: 'Archive files'
+    inputs:
+      rootFolderOrFile: $(System.DefaultWorkingDirectory)
+      includeRootFolder: false
+      archiveType: tar
+      tarCompression: gz
+      archiveFile: $(Build.ArtifactStagingDirectory)/sasacommon-$(python.version).tar.gz
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'sasacommon'
+      publishLocation: 'Container'
