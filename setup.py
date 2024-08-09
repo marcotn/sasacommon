@@ -20,12 +20,12 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 setup(
     name='sasacommon',  # Required
     version='0.1.1',  # Required
+    author="Marco Pavanelli",
+    author_email="marco.pavanelli@sasabz.it",
     description='Common sasa library for.',  # Optional
     long_description=long_description,  # Optional
     long_description_content_type='text/markdown',  # Optional (see note above)
     url="https://github.com/marcotn/sasacommon",
-    author="Marco Pavanelli",
-    author_email="marco.pavanelli@sasabz.it",
     # Classifiers help users find your project by categorizing it.
     #
     # For a list of valid classifiers, see https://pypi.org/classifiers/
