@@ -37,4 +37,5 @@ jobs:
       with:
         password: ${{ secrets.PYPI_TOKEN }}
         verify-metadata: false
+        verbose: true
         #repository_url: ${{ inputs.pypi_repository-url }}
