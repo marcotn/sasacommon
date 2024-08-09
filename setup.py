@@ -46,11 +46,7 @@ setup(
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
     ],
-
-    package_dir={'': 'src'},  # Optional
-
     packages=find_packages(where='src'),  # Required
-    python='>=3',
     python_requires='>=3, <4',
     install_requires=['requests'],  # Optional
 )
