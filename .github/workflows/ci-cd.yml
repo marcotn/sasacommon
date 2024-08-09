@@ -36,4 +36,5 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         password: ${{ secrets.PYPI_TOKEN }}
+        verify-metadata: false
         #repository_url: ${{ inputs.pypi_repository-url }}
