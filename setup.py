@@ -24,8 +24,8 @@ setup(
     long_description=long_description,  # Optional
     long_description_content_type='text/markdown',  # Optional (see note above)
     url="https://github.com/marcotn/sasacommon",
-    author='http://www.sasabz.it',  # Optional
-    author_email='support@sasabz.it',  # Optional
+    author="Marco Pavanelli",
+    author_email="marco.pavanelli@sasabz.it",
     # Classifiers help users find your project by categorizing it.
     #
     # For a list of valid classifiers, see https://pypi.org/classifiers/
